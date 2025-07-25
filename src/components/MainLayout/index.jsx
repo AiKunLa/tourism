@@ -19,16 +19,26 @@ export default function MainLayout() {
 
   // 监听路由变化 ，路由变化时，根据路由路径，设置当前激活的tabbar
   // 当用户从链接直接进入页面时，根据链接路径，激活对应的tabbar
+
+  // useEffect(() => {
+  //   const index = tabs.findIndex((tab) =>
+  //     location.pathname.startsWith(tab.path)
+  //   );
+  //   setActive(index);
+  // }, []);
+
   useEffect(() => {
-    const index = tabs.findIndex((tab) =>
-      location.pathname.startsWith(tab.path)
-    );
-    setActive(index);
-  }, []);
+    // 处理根路径情况，默认匹配首页
+    const path = location.pathname === "/" ? "/home" : location.pathname;
+    const index = tabs.findIndex((tab) => path.startsWith(tab.path));
+    setActive(index > -1 ? index : 0); // 确保默认选中首页
+  }, []); // 添加
 
   return (
-    <div>
-      <Outlet />
+    <div className="flex flex-col h-screen" style={{ paddingBottom: "50px" }}>
+      <div className="flex-1">
+        <Outlet />
+      </div>
       <Tabbar
         value={active}
         onChange={(index) => {
