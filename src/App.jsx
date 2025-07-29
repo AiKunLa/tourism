@@ -15,6 +15,7 @@ const Account = lazy(() => import("@/pages/Account"));
 // 不需要tabbar的Layout
 const Login = lazy(() => import("@/pages/Login"));
 const Search = lazy(() => import("@/pages/Search"));
+const Detail = lazy(() => import("@/pages/Detail"));
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route element={<BlankLayout />}>
             <Route path="/login" element={<Login />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/detail/:id" element={<Detail />} />
           </Route>
         </Routes>
       </Suspense>

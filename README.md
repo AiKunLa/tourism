@@ -176,6 +176,8 @@
     各种模块里module.css 不影响别的组件
     使用lib-flexible 移动端适配
     postcss pxtorem 插件快速还原设计稿
+    - grid 布局
+        
 
 4. 组件亮点
     - 通用组件**Loading**  中使用animation
@@ -205,6 +207,10 @@
         - api
             GoogleSuggest
         - 搜索历史 localStroage
-
+5. 用户体验
+    - 搜索建议 memo
+    - 热门推荐
+    - 组件粒度划分
+    - 骨架屏
 ### 遇到的问题并如何解决
 - chat message中遇到message覆盖问题 —— 这是一个闭包陷阱的问题

@@ -5,9 +5,7 @@ import { useEffect } from "react";
  * @param {*} title 页面标题
  */
 function useTitle(title) {
-  useEffect(() => {
-    document.title = title;
-  }, []);
+  document.title = title;
 }
 
 export default useTitle;
