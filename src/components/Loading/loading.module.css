@@ -1,0 +1,37 @@
+.wrapper>div {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /* 改为简约蓝色调 */
+    background: #4096ff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* 简化阴影效果 */
+    box-shadow: 0 0 10px rgba(64, 150, 255, 0.5);
+    /* 调整动画参数 */
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 优化第二个圆的样式和动画延迟 */
+.wrapper>div:nth-child(2){
+    width: 20px;
+    height: 20px;
+    animation-delay: -0.75s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+        /* 增强阴影扩散效果 */
+        box-shadow: 0 0 20px rgba(64, 150, 255, 0.8);
+    }
+}

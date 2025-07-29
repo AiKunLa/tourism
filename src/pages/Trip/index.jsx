@@ -23,8 +23,10 @@ export default function Trip() {
     },
   ]);
   const handleChat = async () => {
+    console.log(text);
     if (text.trim() === "") {
-      Toast.info({ message: "内容不能为空" });
+      Toast.info("内容不能为空");
+      return;
     }
     setIsSending(true);
     setText("");
@@ -42,7 +44,7 @@ export default function Trip() {
     setMessages((pre) => {
       return [...pre, newMessage];
     });
-    
+
     console.log(newMessage);
     setIsSending(false);
   };

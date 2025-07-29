@@ -133,6 +133,7 @@
 ## 功能模块
 - UI 组件库
     - react-vant 选择适合业务的组件库
+
 - 路由模块
     - 使用Layout组件 嵌套路由Outlet 分组显示
         Route 不加path对应的路由自动选择
@@ -166,6 +167,7 @@
     - 封装chat 函数
     - 由于对各家模型比较感兴趣， 我将这个函数升级为kimiChat deepSeekChat，从而可以灵活调用各种模型
         这是出于对不同大模型的性能 能力 性价比来考虑的
+    - 文生图，prompt设计
 3. css
     - 原子css
         一个元素按功能逻辑拆分为多个类，和原子一样，每个类负责的样式功能不同。元素的样式由这些原子类来组成。
@@ -175,6 +177,34 @@
     使用lib-flexible 移动端适配
     postcss pxtorem 插件快速还原设计稿
 
+4. 组件亮点
+    - 通用组件**Loading**  中使用animation
+        性能优化 memo，
+        居中方案： 
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        动画方案：animation  与transation只能适用于简单的过度动画 animation 适用于复杂的关键帧动画
+            // loading (动画名称)  1s (动画时间)  linear (动画运动方式)  infinite (动画次数)
+            animation: loading 1s linear infinite;  
+            @keyframes loading { /* 在loading中可以配置关键帧，关键帧中可以配置不同阶段所要展示的的样式 每一帧都是一个动画 */
+                0% ,100%{
+                    transform: scale(0);
+                }
+                50% {
+                    transform: scale(1);    
+                }
+            }
+    - **Search 页面组件**
+        - 防抖
+            使用 工具类中的debounce 函数来实现防抖
+            使用 useMemo来缓存 debounce 函数实例，避免每次渲染都生成新的防抖函数实例
+        - api
+            GoogleSuggest
+        - 搜索历史 localStroage
+
 ### 遇到的问题并如何解决
 - chat message中遇到message覆盖问题 —— 这是一个闭包陷阱的问题
-    

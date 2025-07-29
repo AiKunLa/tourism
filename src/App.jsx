@@ -1,8 +1,9 @@
-import { useState, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import "./App.css";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { MainLayout } from "@/components/MainLayout";
 import { BlankLayout } from "@/components/BlankLayout";
+import { Loading } from "@/components/Loading";
 
 // 带有tabbar的Layout
 const Home = lazy(() => import("@/pages/Home"));
@@ -16,11 +17,9 @@ const Login = lazy(() => import("@/pages/Login"));
 const Search = lazy(() => import("@/pages/Search"));
 
 function App() {
-  const [value, setValue] = useState("");
-
   return (
     <>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           {/* 带有tabbar的Layout */}
           <Route element={<MainLayout />}>

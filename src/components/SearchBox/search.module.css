@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0 40px 0 12px;
+    height: 80px;
+    background: #eee;
+}
+.ipt {
+    flex: 1;
+    margin: 0 5px;
+    line-height: 36px;
+    background: #eee;
+    clear: #333;
+    font-size: 28px;
+    outline: none;
+    border: none; /* 清除默认样式 去掉边框 使用极简风格 */
+    border-bottom: 1px solid #e4e4e4; 
+}
+
+/* 当未输入时 设置 placeholder 样式 */
+.box:placeholder {
+    color: #1f1f1f;
+}

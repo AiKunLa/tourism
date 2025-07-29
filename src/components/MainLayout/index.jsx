@@ -2,6 +2,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Tabbar } from "react-vant";
 import { HomeO, Search, FriendsO, SettingO, UserO } from "@react-vant/icons";
+import { Loading } from "@/components/Loading";
 
 //菜单栏配置
 const tabs = [
@@ -32,11 +33,12 @@ export default function MainLayout() {
     const path = location.pathname === "/" ? "/home" : location.pathname;
     const index = tabs.findIndex((tab) => path.startsWith(tab.path));
     setActive(index > -1 ? index : 0); // 确保默认选中首页
-  }, []); // 添加
+  }, [location.pathname]); // 添加依赖项
 
   return (
     <div className="flex flex-col h-screen" style={{ paddingBottom: "50px" }}>
       <div className="flex-1">
+
         <Outlet />
       </div>
       <Tabbar
