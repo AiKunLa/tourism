@@ -1,5 +1,27 @@
 import Mock from "mockjs";
 
+/**
+ * - 这是一个类数组对象（Array-like object），具有 length 属性
+   - pageSize 决定了生成数组的长度
+   - 例如当 pageSize=3 时，相当于创建了一个长度为3的空数组 [empty, empty, empty]
+   第二个参数 (_, i) => ({ ... }) :
+
+  - 这是一个映射函数，用于将类数组对象的每个元素转换为指定格式
+  - 接收两个参数：
+     _ ：当前元素的值（这里未使用，仅占位）
+     i ：当前元素的索引（从0开始）
+ */
+
+// 模拟获取图片数据
+// 创建指定长度的数组 ， 并填充数据
+const getimages = (page, pageSize = 10) => {
+  return Array.from({ length: pageSize }, (_, i) => ({
+    id: `${page}-${i}`, // 作为索引的id
+    height: Mock.Random.integer(200, 500),
+    url: Mock.Random.image("300x400", Mock.Random.color(), "#fff", "img"),
+  }));
+};
+
 export default [
   {
     url: "/api/getSuggestList",
@@ -90,6 +112,19 @@ export default [
         code: 0,
         msg: "success",
         data: randomData,
+      };
+    },
+  },
+  {
+    // 加载更多图片 queryString
+    url: "/api/images",
+    method: "get",
+    timeout: 1000,
+    response: ({ query }) => {
+      const page = Number(query.page) || 1;
+      return {
+        code: 0,
+        data: getimages(page),
       };
     },
   },

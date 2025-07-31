@@ -50,15 +50,15 @@ export default function Account() {
   ];
 
   const gridData = [
-    { icon: <AddO />, text: '添加' },
-    { icon: <CartO />, text: '购物车' },
-    { icon: <ChatO />, text: '聊天' },
-    { icon: <FireO />, text: '热门' },
-    { icon: <LikeO />, text: '喜欢' },
-    { icon: <StarO />, text: '收藏' },
-    { icon: <Search />, text: '搜索' },
-    { icon: <HomeO />, text: '首页' },
-    { icon: <UserO />, text: '我的' }
+    { icon: <AddO />, text: "添加" },
+    { icon: <CartO />, text: "购物车" },
+    { icon: <ChatO />, text: "聊天" },
+    { icon: <FireO />, text: "热门" },
+    { icon: <LikeO />, text: "喜欢" },
+    { icon: <StarO />, text: "收藏" },
+    { icon: <Search />, text: "搜索" },
+    { icon: <HomeO />, text: "首页" },
+    { icon: <UserO />, text: "我的" },
   ];
 
   const handleAction = async (e) => {

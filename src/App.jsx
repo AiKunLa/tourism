@@ -4,6 +4,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { MainLayout } from "@/components/MainLayout";
 import { BlankLayout } from "@/components/BlankLayout";
 import { Loading } from "@/components/Loading";
+import { Toast } from "@/components/Toast";
 
 // 带有tabbar的Layout
 const Home = lazy(() => import("@/pages/Home"));
@@ -17,10 +18,13 @@ const Login = lazy(() => import("@/pages/Login"));
 const Search = lazy(() => import("@/pages/Search"));
 const Detail = lazy(() => import("@/pages/Detail"));
 
+
+
 function App() {
   return (
     <>
       <Suspense fallback={<Loading />}>
+        <Toast />
         <Routes>
           {/* 带有tabbar的Layout */}
           <Route element={<MainLayout />}>
