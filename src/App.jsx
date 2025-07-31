@@ -17,7 +17,7 @@ const Account = lazy(() => import("@/pages/Account"));
 const Login = lazy(() => import("@/pages/Login"));
 const Search = lazy(() => import("@/pages/Search"));
 const Detail = lazy(() => import("@/pages/Detail"));
-
+const Coze = lazy(() => import('@/pages/Coze'));
 
 
 function App() {
@@ -41,6 +41,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/search" element={<Search />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/coze" element={<Coze />}/>
           </Route>
         </Routes>
       </Suspense>
